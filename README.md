@@ -1,3 +1,10 @@
+### Membres: 
+    - Jean-Marie SODOGANDJI
+    - Bamos Guinley
+    - Jean-Claude Tognibo
+    - Esther Akissohe
+
+
 Pour concevoir la structure de la base de données pour l'application API de musique (`apiApp music`), nous allons définir les tables `albums`, `musique`, et `user`, ainsi que leurs relations.
 
 ### Tables et Structures
