@@ -1,5 +1,6 @@
 package bj.highfiveuniversity.apiAppMusic.repositories;
 
-public class UserRepository {
+
+public interface UserRepository  {
     
 }

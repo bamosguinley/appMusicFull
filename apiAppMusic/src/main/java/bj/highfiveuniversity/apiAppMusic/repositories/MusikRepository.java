@@ -1,5 +1,9 @@
 package bj.highfiveuniversity.apiAppMusic.repositories;
 
-public class MusikRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import bj.highfiveuniversity.apiAppMusic.models.Musik;
+
+public interface MusikRepository extends JpaRepository <Musik, Long> {
     
 }
