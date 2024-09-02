@@ -1,0 +1,45 @@
+package bj.highfiveuniversity.apiAppMusic.models;
+
+import java.time.LocalDateTime;
+
+import lombok.Data;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+
+
+@Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="albums")
+public class Album {
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(name = "ref", unique = true, nullable = false)
+    private String ref;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "duration")
+    private Integer duration;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
+
+}
