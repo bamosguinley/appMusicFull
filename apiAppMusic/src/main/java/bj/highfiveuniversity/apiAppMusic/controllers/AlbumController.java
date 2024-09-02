@@ -35,19 +35,19 @@ public class AlbumController {
     }
 
     @PostMapping()
-    public ResponseEntity<Album> createalbum(@RequestBody Album album) {
+    public ResponseEntity<Album> createAlbum(@RequestBody Album album) {
         Album newalbum = albumService.createAlbum(album);
         return ResponseEntity.ok(newalbum);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Album> updatealbum(@PathVariable Long id, @RequestBody Album album) {
+    public ResponseEntity<Album> updateAlbum(@PathVariable Long id, @RequestBody Album album) {
         Album albumToUpdate = albumService.updateAlbum(id, album);
         return ResponseEntity.ok(albumToUpdate);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletealbum(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteAlbum(@PathVariable Long id) {
         albumService.deleteAlbum(id);
         return ResponseEntity.noContent().build();
     }
