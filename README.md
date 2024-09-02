@@ -19,7 +19,6 @@ Pour concevoir la structure de la base de données pour l'application API de mus
        title VARCHAR(255) NOT NULL,
        description TEXT,
        duration INT, -- Durée en secondes
-       statut ENUM('active', 'inactive') NOT NULL DEFAULT 'active'
    );
    ```
 
