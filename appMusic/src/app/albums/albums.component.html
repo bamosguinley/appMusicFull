@@ -1,0 +1,69 @@
+<div class="container d-flex mt-4">
+  <div
+    class="spinner-grow spine text-primary"
+    style="width: 3rem; height: 3rem"
+    role="status"
+    *ngIf="loader"
+  ></div>
+  <div class="details-container">
+    <app-album-details
+      [currentAlbum]="albumId"
+      (sendToPlayer)="getAlbumForPlay($event)"
+    ></app-album-details>
+  </div>
+  <div class="ambums-list w-100" *ngIf="loader == false">
+    <div class="player" *ngIf="sendPlayingAlbum">
+      <app-album-player [playingId]="sendPlayingAlbum"></app-album-player>
+    </div>
+
+    <div class="search g-3">
+      <app-album-search (searchEvent)="handleSearch($event)"></app-album-search>
+    </div>
+
+
+  <div class="pagination mb-3 ">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">Prev</button>
+      <button *ngFor="let page of pageNumbers" 
+              (click)="butnPages(page)" 
+              [class.active]="page === currentPage">
+        {{ page }}
+      </button>
+      <button (click)="nextPage()" [disabled]="currentPage * albumsPerPage >= albums.length">Next</button>
+    </div>
+    
+    <div class="list col-md-auto" *ngIf="displayedAlbums">
+      <div class="card mb-3" *ngFor="let album of displayedAlbums; index">
+        <div class="card-header">{{ album.ref }}</div>
+        <div class="card-body">
+          <a class="card-title" href="album/{{ album.id }}">{{ album.name }}</a>
+          <p class="card-text">
+            {{ album.description }}
+          </p>
+          <div class="tags" *ngIf="album.tags">
+            <!-- tag list -->
+            <span *ngFor="let tag of album.tags; index" class="tag">
+              {{ tag }}
+            </span>
+          </div>
+          <div class="btn-section mt-4">
+            <button class="btn btn-primary" (click)="getAlbum(album.id)">
+              En
+            </button>
+            <span class="mx-3">
+              <img src="../../assets/img/heart.svg" alt="" />
+              {{album.like}}
+            </span>
+            <span>
+              <img src="../../assets/img/clock.svg" alt="" />
+              {{ album.duration + " min" }}
+            </span>
+            <button class="btn btn-primary" (click)="getAlbum(album.id)">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" *ngIf="displayedAlbums.length == 0">Aucun album trouvé 😥</div>
+  </div>
+</div>
