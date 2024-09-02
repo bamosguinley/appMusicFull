@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Musik {
+public class Musique {
     @Id
     @GeneratedValue
     private Long id;
