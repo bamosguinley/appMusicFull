@@ -29,6 +29,7 @@ Pour concevoir la structure de la base de données pour l'application API de mus
    CREATE TABLE musique (
        id INT AUTO_INCREMENT PRIMARY KEY,
        title VARCHAR(255) NOT NULL,
+       paroles TEXT ,
        album_id INT,
        FOREIGN KEY (album_id) REFERENCES albums(id) ON DELETE SET NULL
    );
