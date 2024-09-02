@@ -22,7 +22,7 @@ export class AlbumDetailsComponent {
   ngOnChanges() {
     console.log(this.currentAlbum);
     if (this.currentAlbum) {
-      // this.albums = this.albumService.getAlbums();
+      this.albums = this.albumService.getAlbums();
       this.album = this.albums.filter((a) => a.id == this.currentAlbum);
       this.currentSongs = this.albumsDetails.filter(
         (a) => a.id == this.currentAlbum

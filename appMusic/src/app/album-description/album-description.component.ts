@@ -16,7 +16,7 @@ export class AlbumDescriptionComponent {
   }
   ngOnInit() {
     this.route.params.subscribe((params) => this.albumId = params['id']);
-    // this.albums = this.albumService.getAlbums();
+    this.albums = this.albumService.getAlbums();
     this.album = this.albums.filter((a) => a.id == this.albumId)
     console.log(this.album);
     

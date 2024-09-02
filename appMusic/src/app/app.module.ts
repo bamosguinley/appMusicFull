@@ -9,9 +9,13 @@ import { AlbumPlayerComponent } from './album-player/album-player.component';
 import { AlbumSearchComponent } from './album-search/album-search.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+<<<<<<< HEAD
 import { ListFavorisComponent } from './list-favoris/list-favoris.component';
+=======
+import { RegisterComponent } from './register/register.component';
+>>>>>>> 82a69db (add auth)
 
 @NgModule({
   declarations: [
@@ -22,13 +26,18 @@ import { ListFavorisComponent } from './list-favoris/list-favoris.component';
     AlbumSearchComponent,
     AlbumsComponent,
     LoginComponent,
+<<<<<<< HEAD
     ListFavorisComponent
+=======
+    RegisterComponent
+>>>>>>> 82a69db (add auth)
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

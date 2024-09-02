@@ -23,8 +23,7 @@ import bj.highfiveuniversity.apiAppMusic.services.AlbumService;
  * albums.
  */
 @RestController
-@RequestMapping("api/albums")
-
+@RequestMapping("auth/api/albums")
 public class AlbumController {
     /**
      * Service pour la gestion des albums.

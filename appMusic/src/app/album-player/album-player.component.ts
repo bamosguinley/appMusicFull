@@ -18,7 +18,7 @@ export class AlbumPlayerComponent {
   @Input() playingId: string = '';
   constructor(private albumService: AlbumService) {}
   ngOnChanges(): void {
-    // this.album = this.albumService.getAlbums().filter((a) => a.id == this.playingId);
+    this.album = this.albumService.getAlbums().filter((a) => a.id == this.playingId);
     this.songNumber = this.albumService.getSongs().filter((s) => s.id == this.playingId)[0].list.length;
     this.totalSteps = this.songNumber;
     // this.timeStep = this.album[0].duration*100 / this.totalSteps;
