@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { AlbumService } from '../services/album.service';
 import { Album } from '../interfaces/album';
+import { AlbumService } from '../services/album.service';
+import { FavorisService } from '../services/favoris.service';
 
 @Component({
   selector: 'app-albums',
@@ -26,8 +27,15 @@ export class AlbumsComponent {
   pageNumbers?: number[]; //numero des pages
   totalPages!:number; //nombre total de pages
 
+  item: any;
+  favoris:any =[];
+  items:any[]=[];
+
   @Input() sendPlayingAlbum: string = '';
-  constructor(private albumService: AlbumService) {}
+  constructor(private albumService: AlbumService,
+    private FavorisService: FavorisService
+  
+  ) {}
   ngOnInit() {
     this.albums = this.albumService.getAlbums();
     this.totalPages = this.albumService.getAlbums().length / 2;
@@ -99,4 +107,40 @@ export class AlbumsComponent {
       (_, i) => start + i
     );
   }
+//   addToFavorites(albumId:string) {
+//     this.FavorisService.addFavorite(albumId);
+//    // Récupérer l'album en utilisant l'ID
+//    const album = this.getAlbumById(albumId);
+//    if (album) {
+//      this.FavorisService.addFavorite(album);
+//      alert('Album ajouté aux favoris !');
+//    } else {
+//      alert('Album non trouvé !');
+//    }
+    
+// }
+
+  // Méthode pour ajouter ou retirer un album des favoris
+  toggleFavorite(albumId: string) {
+    const album = this.getAlbumById(albumId);
+    if (album) {
+      if (this.isFavorite(albumId)) {
+        this.FavorisService.removeFavorite(album);
+        alert('Album retiré des favoris !');
+      } else {
+        this.FavorisService.addFavorite(album);
+        alert('Album ajouté aux favoris !');
+      }
+    } else {
+      alert('Album non trouvé !');
+    }
+  }
+
+   // Vérifie si un album est déjà dans les favoris
+   isFavorite(albumId:string): boolean {
+    return this.FavorisService.getFavorites().some(fav => fav.id === albumId);
+  }
+getAlbumById(id: String) {
+  return this.albums.find(album => album.id === id);
+}
 }

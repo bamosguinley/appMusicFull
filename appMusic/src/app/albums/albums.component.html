@@ -50,11 +50,19 @@
               En
             </button>
             <span class="mx-3">
-              <img src="../../assets/img/heart.svg" alt="" />
-              {{album.like}}
+              <img src="../../assets/img/heart.svg" alt="" 
+              
+          
+              (click)="toggleFavorite(album.id)" 
+              [ngClass]="{'favorite': isFavorite(album.id)}" 
+              
+              class="favorite-icon"
+              />
+            <a  href="favoris"> Favoris</a>
             </span>
             <span>
               <img src="../../assets/img/clock.svg" alt="" />
+
               {{ album.duration + " min" }}
             </span>
             <button class="btn btn-primary" (click)="getAlbum(album.id)">

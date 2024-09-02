@@ -11,6 +11,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { ListFavorisComponent } from './list-favoris/list-favoris.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginComponent } from './login/login.component';
     AlbumPlayerComponent,
     AlbumSearchComponent,
     AlbumsComponent,
-    LoginComponent
+    LoginComponent,
+    ListFavorisComponent
   ],
   imports: [
     BrowserModule,

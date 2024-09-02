@@ -1,0 +1,56 @@
+
+ <div class="conte">
+    <div>
+
+        <h2>Mes Favoris</h2>  
+    </div>
+  
+
+ </div>
+
+<table class="favorites-table">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Nom de l'auteur</th>
+        <th> Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr>
+
+       <td></td>
+      <td></td>
+      <td></td>
+     <td>
+        <div class="btn">
+           
+            <button type="button" class="btn btn-danger">Supprimer</button>
+            <button type="button" class="btn btn-warning">Modifier</button>
+        </div>
+      
+      
+     </td>
+        
+       
+     </tr>
+    </tbody>
+  </table>
+  <table class="favorites-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fav of favoris; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ fav.name }}</td>
+        <td>
+          <button (click)="removeFromFavorites(fav)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

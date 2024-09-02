@@ -1,0 +1,48 @@
+.favorites-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .favorites-table th, 
+  .favorites-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .favorites-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .favorites-table tr:hover {
+    background-color: #f1f1f1;
+  }
+   h2{
+     color: blueviolet;
+     text-align: center
+   
+  
+
+   }
+   div{
+   
+    background-color: rgb(187, 152, 220);
+    width: 300px;
+    margin:0 auto;
+   
+   }
+   .conte{
+    display: flex;
+    justify-content: center;
+   }
+   th{
+    color: rgb(97, 5, 183);
+     text-align: center
+     
+   }
+ .btn{
+  
+    margin-left: 20px;
+ }
