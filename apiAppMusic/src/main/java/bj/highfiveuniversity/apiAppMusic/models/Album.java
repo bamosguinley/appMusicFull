@@ -2,7 +2,11 @@ package bj.highfiveuniversity.apiAppMusic.models;
 // Importation des classes nécessaires pour les annotations et les types de données
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import lombok.Data;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -76,5 +80,8 @@ public class Album {
      * Mis à jour automatiquement à chaque modification de l'album.
      */
     private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "album")
+    private List<AlbumFavoris> albumFavoris; 
 
 }

@@ -25,11 +25,9 @@ public class AlbumFavoris {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    // @ManyToOne
-    // @JoinColumn(name = "album_id", nullable = false)
-    // private Album album;
-
-
+    @ManyToOne
+    @JoinColumn(name = "album_id", nullable = false)
+    private Album album;
 }
 
 

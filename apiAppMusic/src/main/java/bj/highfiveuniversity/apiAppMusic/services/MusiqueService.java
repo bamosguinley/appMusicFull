@@ -17,6 +17,7 @@ public class MusiqueService {
         return musikRepository.findAll();
     }
 
+    
     public Musique getMusikById(Long id) {
         Musique musik = musikRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("aucune musique n'est trouvé"));

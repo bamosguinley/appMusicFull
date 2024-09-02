@@ -37,8 +37,8 @@ export class AlbumsComponent {
   
   ) {}
   ngOnInit() {
-    this.albums = this.albumService.getAlbums();
-    this.totalPages = this.albumService.getAlbums().length / 2;
+    // this.albums = this.albumService.getAlbums();
+    // this.totalPages = this.albumService.getAlbums().length / 2;
     this.updatePageNumbers();
     console.log(this.pageNumbers+'nbr');
     
