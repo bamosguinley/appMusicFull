@@ -17,7 +17,7 @@ public class MusikService {
         return musikRepository.findAll();
     }
 
-    public Musik getMusikByMusik(Long id) {
+    public Musik getMusikById(Long id) {
         Musik musik = musikRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("aucune musique n'est trouvé"));
         return musik;
@@ -29,7 +29,7 @@ public class MusikService {
 
     }
 
-    public Musik updateMusik(Musik musik, Long id) {
+    public Musik updateMusik(Long id, Musik musik ) {
         Musik musik2 = musikRepository.findById(id).orElseThrow(() -> new RuntimeException(""));
         musik2.setTitle(musik2.getTitle());
         musik2.setParoles(musik2.getParoles());
