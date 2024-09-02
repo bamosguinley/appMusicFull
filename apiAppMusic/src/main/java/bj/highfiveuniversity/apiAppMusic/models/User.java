@@ -1,8 +1,11 @@
 package bj.highfiveuniversity.apiAppMusic.models;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,5 +21,10 @@ public class User {
     @GeneratedValue
     private Long id;
     private String username;
-    private String password; 
+    private String password;
+    private String email;
+    @OneToMany(mappedBy = "user")
+    private List<AlbumFavoris> albumFavoris;
+
 }
+

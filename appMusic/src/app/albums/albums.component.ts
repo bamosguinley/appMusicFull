@@ -29,8 +29,8 @@ export class AlbumsComponent {
   @Input() sendPlayingAlbum: string = '';
   constructor(private albumService: AlbumService) {}
   ngOnInit() {
-    this.albums = this.albumService.getAlbums();
-    this.totalPages = this.albumService.getAlbums().length / 2;
+    // this.albums = this.albumService.getAlbums();
+    // this.totalPages = this.albumService.getAlbums().length / 2;
     this.updatePageNumbers();
     console.log(this.pageNumbers+'nbr');
     
