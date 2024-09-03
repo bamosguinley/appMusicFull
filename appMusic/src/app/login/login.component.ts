@@ -19,8 +19,14 @@ export class LoginComponent {
   onLogin(): void {
     this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
-        // Stockez le token ou faites autre chose après connexion réussie
-        // this.router.navigate(['/home']);
+         const token = response.token;
+         if (token) {
+           // Stocker le token dans le localStorage ou sessionStorage
+           localStorage.setItem('authToken', token);
+
+           // Rediriger l'utilisateur vers la page d'accueil ou une autre page
+        //    this.router.navigate(['/home']);
+         }
       },
       error: (error) => {
         this.errorMessage = error.error;

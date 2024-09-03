@@ -17,7 +17,7 @@ import bj.highfiveuniversity.apiAppMusic.models.Album;
 import bj.highfiveuniversity.apiAppMusic.services.AlbumService;
 
 @RestController
-@RequestMapping("auth/api/albums")
+@RequestMapping("/api/albums")
 public class AlbumController {
 
     @Autowired

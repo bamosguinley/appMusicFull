@@ -1,6 +1,6 @@
 <div class="container col-6 card p-12 p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
   <p class="text-center h3 text-bold">Connexion</p>
-<form (ngSubmit)="onLogin()" #loginForm="ngForm">
+<form (ngSubmit)="onLogin()" #loginForm="ngForm" method="post">
   <div>
     <label for="username">Username:</label>
     <input type="text" id="username" [(ngModel)]="username" name="username" required>

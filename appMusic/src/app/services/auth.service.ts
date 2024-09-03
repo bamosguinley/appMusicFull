@@ -16,20 +16,13 @@ export class AuthService {
       params: { username, password },
     });
   }
-
+  
   login(username: string, password: string): Observable<any> {
     // Envoyer les données comme JSON dans le corps de la requête
-    console.log(
-      
-        { username, password },
-        { withCredentials: true }
-      
-    );
-    
     return this.http.post(
       `${this.apiUrl}/login`,
-      { username, password },
-      { withCredentials: true }
+      { username, password }, // Corps de la requête
+      { withCredentials: true } // Options de la requête
     );
   }
 
