@@ -31,6 +31,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<String> loginUser(@RequestParam String username, @RequestParam String password) {
+        System.out.println(username +"nom");
         User user = userService.findByUsername(username);
         if (user != null && userService.getPasswordEncoder().matches(password, user.getPassword())) {
             return ResponseEntity.ok("Login successful");
