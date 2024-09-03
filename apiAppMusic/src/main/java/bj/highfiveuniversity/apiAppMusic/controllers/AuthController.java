@@ -10,13 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 import bj.highfiveuniversity.apiAppMusic.models.User;
 import bj.highfiveuniversity.apiAppMusic.services.UserService;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
     private final UserService userService;
 
-    @Autowired
     public AuthController(UserService userService) {
         this.userService = userService;
     }
@@ -32,12 +38,23 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> loginUser(@RequestParam String username, @RequestParam String password) {
+    public ResponseEntity<Map<String, String>> loginUser(@RequestBody Map<String, String> body) {
+        String username = body.get("username");
+        String password = body.get("password");
         System.out.println(username +"nom");
         User user = userService.findByUsername(username);
         if (user != null && userService.getPasswordEncoder().matches(password, user.getPassword())) {
-            return ResponseEntity.ok("Login successful");
+             // Génère un token simple (remplace cela par une véritable génération de JWT)
+            String token = "dummy-token-for-" + username;
+
+            // Crée une réponse avec le token
+            Map<String, String> response = new HashMap<>();
+            response.put("token", token);
+            return ResponseEntity.ok(response);
         }
-        return ResponseEntity.badRequest().body("Invalid credentials");
+        // Réponse en cas d'échec de l'authentification
+        Map<String, String> errorResponse = new HashMap<>();
+        errorResponse.put("error", "Invalid credentials");
+        return ResponseEntity.badRequest().body(errorResponse);
     }
 }
