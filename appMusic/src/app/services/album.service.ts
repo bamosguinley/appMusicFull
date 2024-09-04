@@ -24,4 +24,8 @@ export class AlbumService {
     return this.http.get<List[]>('http://localhost:8081/api/musiques');
   }
 
+  createAlbum(album: Album): Observable<Album> {
+    return this.http.post<Album>(this.apiUrl, album);
+  }
+  
 }

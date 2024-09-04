@@ -3,6 +3,7 @@ import { AlbumService } from '../services/album.service';
 import { Album } from '../interfaces/album';
 import { List } from '../interfaces/list';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-albums',
@@ -29,7 +30,7 @@ export class AlbumsComponent {
   // totalPages!: number; //nombre total de pages
 
   @Input() sendPlayingAlbum: string = '';
-  constructor(private albumService: AlbumService) {}
+  constructor(private albumService: AlbumService, private router: Router) {}
   ngOnInit() {
     this.loadAlbums();
     this.startLoading();
@@ -74,8 +75,7 @@ export class AlbumsComponent {
   }
 
   onDelete(albumId: string): void {
-
-    //utilisastion de sweetAlery 
+    //utilisastion de sweetAlery
     Swal.fire({
       title: 'Êtes-vous sûr ?',
       text: 'Cette action est irréversible!',
@@ -90,7 +90,8 @@ export class AlbumsComponent {
         this.albumService.deleteAlbum(albumId).subscribe({
           next: () => {
             Swal.fire('Supprimé!', 'L’album a été supprimé.', 'success');
-
+            this.loadAlbums;
+           this.refreshAfterDelete(albumId);
           },
           error: (err) => {
             console.error('Erreur lors de la suppression de l’album', err);
@@ -112,47 +113,14 @@ export class AlbumsComponent {
   handleSearch(query: string): void {
     this.queryString = query;
     console.log(this.queryString);
-    // this.filterItems();
   }
 
-  // public filterItems(): void {
-  //   if (this.queryString.trim().length > 0) {
-  //     this.displayedAlbums = this.albums.filter((item) =>
-  //       item.name.toLowerCase().includes(this.queryString.toLowerCase())
-  //     );
-  //   } else {
-  //     this.butnPages(this.currentPage);
-  //   }
-  // }
-
+  refreshAfterDelete(albumId :string) {
+    this.albums = this.albums.filter((a) => a.id != albumId);
+  }
   getAlbumForPlay(e: string) {
     console.log(e);
     this.sendPlayingAlbum = e;
   }
 
-  // butnPages(n: number) {
-  //   this.currentPage = n;
-  //   this.loadAlbums();
-  // }
-  // nextPage() {
-  //   this.currentPage++;
-  //   this.loadAlbums();
-  // }
-
-  // previousPage() {
-  //   if (this.currentPage > 1) {
-  //     this.currentPage--;
-  //     this.loadAlbums();
-  //   }
-  // }
-
-  // updatePageNumbers(): void {
-  //   const range = 10;
-  //   const start = Math.max(1, this.currentPage - range);
-  //   const end = Math.min(this.totalPages, this.currentPage + range);
-  //   this.pageNumbers = Array.from(
-  //     { length: end - start + 1 },
-  //     (_, i) => start + i
-  //   );
-  // }
 }
