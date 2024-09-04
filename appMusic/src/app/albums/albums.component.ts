@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AlbumService } from '../services/album.service';
 import { Album } from '../interfaces/album';
+import { List } from '../interfaces/list';
 
 @Component({
   selector: 'app-albums',
@@ -9,7 +10,7 @@ import { Album } from '../interfaces/album';
 })
 export class AlbumsComponent {
   queryString: string = '';
-  albums: Album[] = [];
+  albums: List[] = [];
   albumId: string = '';
   loader: boolean = true;
   loaderCount?: any;
@@ -24,25 +25,52 @@ export class AlbumsComponent {
   albumsPerPage: number = 2; //nombre d'album par page
 
   pageNumbers?: number[]; //numero des pages
-  totalPages!:number; //nombre total de pages
+  totalPages!: number; //nombre total de pages
 
   @Input() sendPlayingAlbum: string = '';
   constructor(private albumService: AlbumService) {}
   ngOnInit() {
-    this.albums = this.albumService.getAlbums();
-    this.totalPages = this.albumService.getAlbums().length / 2;
-    this.updatePageNumbers();
-    console.log(this.pageNumbers+'nbr');
-    
+  
     this.loadAlbums();
     this.startLoading();
   }
+
+  loadAlbums(): void {
+    this.albumService.getAlbums().subscribe({
+      next: (albums: List[]) => {
+        this.albums = albums;
+        this.totalPages = Math.ceil(this.albums.length / 2); // Calculer le nombre total de pages
+        this.updatePageNumbers();
+        console.log(this.pageNumbers + ' nbr');
+      },
+      error: (err) => {
+        console.error('Erreur lors de la récupération des albums:', err);
+      },
+    });
+  }
+
+  loadSongs(): void {
+    this.albumService.getSongs().subscribe({
+      next: (songs: List []) => {
+        // this.albumsSongs = songs;
+        // Vous pouvez ajouter du code ici pour gérer les chansons si nécessaire
+      },
+      error: (err) => {
+        console.error('Erreur lors de la récupération des chansons:', err);
+      },
+    });
+  }
+
+
+
+
   startLoading() {
     this.loaderCount = setTimeout(() => {
       this.loader = false;
       console.log(this.loader);
     }, 2000);
   }
+
   getAlbum(albumId: string) {
     this.albumId = albumId;
   }
@@ -50,29 +78,25 @@ export class AlbumsComponent {
   handleSearch(query: string): void {
     this.queryString = query;
     console.log(this.queryString);
-    this.filterItems();
+    // this.filterItems();
   }
 
-  public filterItems(): void {
-    if (this.queryString.trim().length > 0) {
-      this.displayedAlbums = this.albums.filter((item) =>
-        item.name.toLowerCase().includes(this.queryString.toLowerCase())
-      );
-    } else {
-      this.butnPages(this.currentPage);
-    }
-  }
+  // public filterItems(): void {
+  //   if (this.queryString.trim().length > 0) {
+  //     this.displayedAlbums = this.albums.filter((item) =>
+  //       item.name.toLowerCase().includes(this.queryString.toLowerCase())
+  //     );
+  //   } else {
+  //     this.butnPages(this.currentPage);
+  //   }
+  // }
 
   getAlbumForPlay(e: string) {
     console.log(e);
     this.sendPlayingAlbum = e;
   }
 
-  loadAlbums() {
-    const startIndex = (this.currentPage - 1) * this.albumsPerPage;
-    const endIndex = startIndex + this.albumsPerPage;
-    this.displayedAlbums = this.albums.slice(startIndex, endIndex);
-  }
+
 
   butnPages(n: number) {
     this.currentPage = n;
