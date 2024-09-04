@@ -9,8 +9,9 @@ import { AlbumPlayerComponent } from './album-player/album-player.component';
 import { AlbumSearchComponent } from './album-search/album-search.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,15 @@ import { LoginComponent } from './login/login.component';
     AlbumPlayerComponent,
     AlbumSearchComponent,
     AlbumsComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

@@ -1,9 +1,11 @@
 package bj.highfiveuniversity.apiAppMusic.models;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import lombok.Data;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -43,5 +45,8 @@ public class Album {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "album")
+    private List<AlbumFavoris> albumFavoris; 
 
 }
