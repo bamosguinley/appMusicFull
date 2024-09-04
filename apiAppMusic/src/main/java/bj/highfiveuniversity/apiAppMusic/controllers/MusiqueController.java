@@ -48,7 +48,6 @@ public class MusiqueController {
     @PutMapping("/{id}")
     public ResponseEntity<Musique> updateMusik(@PathVariable Long id, @RequestBody Musique musik) {
         Musique musikUpdate = musikService.updateMusik(id, musik);
-
         return ResponseEntity.ok(musikUpdate);
     }
 

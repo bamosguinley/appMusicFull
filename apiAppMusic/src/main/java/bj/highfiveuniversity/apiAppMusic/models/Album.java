@@ -45,6 +45,10 @@ public class Album {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "album")
-    private List<AlbumFavoris> albumFavoris; 
+    private List<AlbumFavoris> albumFavoris;
 
+
+    
+    @OneToMany(mappedBy = "album")
+    private List<Musique> musiques;
 }
