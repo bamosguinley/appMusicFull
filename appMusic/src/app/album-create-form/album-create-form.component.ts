@@ -22,9 +22,9 @@ export class AlbumCreateFormComponent {
 
   createAlbum(): void {
     this.albumService.createAlbum(this.newAlbum).subscribe({
-      next: (album) => {
+      next: () => {
         Swal.fire('Succès!', 'L’album a été créé.', 'success');
-        // Réinitialisez le formulaire ou redirigez vers une autre page si nécessaire
+        // Réinitialise le formulaire 
         this.newAlbum = {
           title: '',
           id: '',

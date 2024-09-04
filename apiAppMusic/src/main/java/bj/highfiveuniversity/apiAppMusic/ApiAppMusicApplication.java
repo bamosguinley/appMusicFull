@@ -13,7 +13,7 @@ public class ApiAppMusicApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApiAppMusicApplication.class, args);
 	}
-	
+
 	@Bean
 	public CommandLineRunner demo(AlbumFakerService albumFakerService) {
 		return (args) -> {
