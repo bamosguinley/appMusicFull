@@ -10,22 +10,22 @@ import { List } from '../interfaces/list';
 })
 export class AlbumsComponent {
   queryString: string = '';
-  albums: List[] = [];
+  albums: Album[]=[] ;
   albumId: string = '';
   loader: boolean = true;
   loaderCount?: any;
   filtererdAlbum: Album[] = [];
 
-  displayedAlbums: Album[] = []; //les données de pagination à afficher
+  // displayedAlbums: Album[] = []; //les données de pagination à afficher
 
   currentPage: number = 1; //page courrante
 
-  pageNumber: number = 1; //nombre de page
+  // pageNumber: number = 1; //nombre de page
 
-  albumsPerPage: number = 2; //nombre d'album par page
+  // albumsPerPage: number = 2; //nombre d'album par page
 
-  pageNumbers?: number[]; //numero des pages
-  totalPages!: number; //nombre total de pages
+  // pageNumbers?: number[]; //numero des pages
+  // totalPages!: number; //nombre total de pages
 
   @Input() sendPlayingAlbum: string = '';
   constructor(private albumService: AlbumService) {}
@@ -37,11 +37,17 @@ export class AlbumsComponent {
 
   loadAlbums(): void {
     this.albumService.getAlbums().subscribe({
-      next: (albums: List[]) => {
-        this.albums = albums;
-        this.totalPages = Math.ceil(this.albums.length / 2); // Calculer le nombre total de pages
-        this.updatePageNumbers();
-        console.log(this.pageNumbers + ' nbr');
+      next: (albums: Album[]) => {
+        // this.albums = albums;
+        albums.forEach(album => {
+         console.log(album);
+          this.albums?.push(album);
+        });
+        // this.totalPages = Math.ceil(this.albums.length / 2); // Calculer le nombre total de pages
+        // this.updatePageNumbers();
+        // console.log(this.pageNumbers + ' nbr');
+        // console.log(albums);
+        
       },
       error: (err) => {
         console.error('Erreur lors de la récupération des albums:', err);
@@ -98,29 +104,29 @@ export class AlbumsComponent {
 
 
 
-  butnPages(n: number) {
-    this.currentPage = n;
-    this.loadAlbums();
-  }
-  nextPage() {
-    this.currentPage++;
-    this.loadAlbums();
-  }
+  // butnPages(n: number) {
+  //   this.currentPage = n;
+  //   this.loadAlbums();
+  // }
+  // nextPage() {
+  //   this.currentPage++;
+  //   this.loadAlbums();
+  // }
 
-  previousPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-      this.loadAlbums();
-    }
-  }
+  // previousPage() {
+  //   if (this.currentPage > 1) {
+  //     this.currentPage--;
+  //     this.loadAlbums();
+  //   }
+  // }
 
-  updatePageNumbers(): void {
-    const range = 10;
-    const start = Math.max(1, this.currentPage - range);
-    const end = Math.min(this.totalPages, this.currentPage + range);
-    this.pageNumbers = Array.from(
-      { length: end - start + 1 },
-      (_, i) => start + i
-    );
-  }
+  // updatePageNumbers(): void {
+  //   const range = 10;
+  //   const start = Math.max(1, this.currentPage - range);
+  //   const end = Math.min(this.totalPages, this.currentPage + range);
+  //   this.pageNumbers = Array.from(
+  //     { length: end - start + 1 },
+  //     (_, i) => start + i
+  //   );
+  // }
 }

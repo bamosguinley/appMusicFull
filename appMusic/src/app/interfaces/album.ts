@@ -5,8 +5,12 @@ export interface Album {
   title: string;
   description: string;
   duration: number;
-  url: string;
+  url?: string;
   like?: string;
   tags?: string[];
   status: string;
+  createdAt: String;
+  updatedAt: String;
+  albumFavoris: [];
+  musiques: [];
 }
