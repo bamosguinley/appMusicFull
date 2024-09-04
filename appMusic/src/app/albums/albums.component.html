@@ -52,12 +52,16 @@
             <span class="mx-3">
               <img src="../../assets/img/heart.svg" alt="" 
               
-          
+              *ngIf="!isFavorite(album.id)" 
               (click)="toggleFavorite(album.id)" 
               [ngClass]="{'favorite': isFavorite(album.id)}" 
               
               class="favorite-icon"
               />
+              <img src="../../assets/img/star-fill.svg"
+              *ngIf="isFavorite(album.id)"
+              (click)="toggleFavorite(album.id)" 
+              [ngClass]="{'favorite': isFavorite(album.id)}"   />
             <a  href="favoris"> Favoris</a>
             </span>
             <span>

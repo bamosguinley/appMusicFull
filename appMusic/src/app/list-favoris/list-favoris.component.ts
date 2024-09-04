@@ -15,14 +15,15 @@ export class ListFavorisComponent {
   private AlbumService :AlbumService
  ){}
 
- addToFavorites(item: any) {
-  this.FavorisService.addFavorite(item);
+ addToFavorites(album: any) {
+  this.FavorisService.addFavorite(album);
   alert('Ajouté aux favoris !');
 }
 ngOnInit() {
   this.favoris= this.FavorisService.getFavorites();
 
-  this.albums = this.AlbumService.getAlbums();
+
+  console.log(this.albums)
 
  console.log(this.favoris)
 }

@@ -138,8 +138,7 @@ export class AlbumsComponent {
 
    // Vérifie si un album est déjà dans les favoris
    isFavorite(albumId:string): boolean {
-    return this.FavorisService.getFavorites().some(fav => fav.id === albumId);
-  }
+    return this.FavorisService.isFavorite(albumId); }
 getAlbumById(id: String) {
   return this.albums.find(album => album.id === id);
 }

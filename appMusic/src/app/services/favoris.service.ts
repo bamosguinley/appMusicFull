@@ -20,4 +20,7 @@ export class FavorisService {
   removeFavorite(album: any) {
     this.Favoris = this.Favoris.filter(fav => fav !==album.id);
   }
+  isFavorite(albumId: string): boolean {
+    return this.Favoris.some(fav => fav.id === albumId);
+  }
 }
