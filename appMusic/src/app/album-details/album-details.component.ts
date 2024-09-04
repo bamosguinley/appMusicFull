@@ -17,12 +17,12 @@ export class AlbumDetailsComponent {
   currentSongs: List[] = [];
 
   constructor(private albumService: AlbumService) {
-    this.albumsDetails = this.albumService.getSongs();
+    // this.albumsDetails = this.albumService.getSongs();
   }
   ngOnChanges() {
     console.log(this.currentAlbum);
     if (this.currentAlbum) {
-      this.albums = this.albumService.getAlbums();
+      // this.albums = this.albumService.getAlbums();
       this.album = this.albums.filter((a) => a.id == this.currentAlbum);
       this.currentSongs = this.albumsDetails.filter(
         (a) => a.id == this.currentAlbum
