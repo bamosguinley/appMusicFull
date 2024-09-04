@@ -11,11 +11,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-<<<<<<< HEAD
 import { ListFavorisComponent } from './list-favoris/list-favoris.component';
-=======
-import { RegisterComponent } from './register/register.component';
->>>>>>> 82a69db (add auth)
 
 @NgModule({
   declarations: [
@@ -26,11 +22,7 @@ import { RegisterComponent } from './register/register.component';
     AlbumSearchComponent,
     AlbumsComponent,
     LoginComponent,
-<<<<<<< HEAD
     ListFavorisComponent
-=======
-    RegisterComponent
->>>>>>> 82a69db (add auth)
   ],
   imports: [
     BrowserModule,
