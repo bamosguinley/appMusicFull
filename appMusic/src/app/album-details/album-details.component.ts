@@ -21,6 +21,26 @@ export class AlbumDetailsComponent {
   }
   ngOnChanges() {
     console.log(this.currentAlbum);
+
+
+ this.albumService.getAlbums().subscribe({
+   next: (albums: Album[]) => {
+     this.albums = albums;
+     albums.forEach((album) => {
+       console.log(album);
+       this.albums?.push(album);
+     });
+     // this.totalPages = Math.ceil(this.albums.length / 2); // Calculer le nombre total de pages
+     // this.updatePageNumbers();
+     // console.log(this.pageNumbers + ' nbr');
+     // console.log(albums);
+   },
+   error: (err) => {
+     console.error('Erreur lors de la récupération des albums:', err);
+   },
+ });
+
+
     if (this.currentAlbum) {
       // this.albums = this.albumService.getAlbums();
       this.album = this.albums.filter((a) => a.id == this.currentAlbum);

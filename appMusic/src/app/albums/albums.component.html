@@ -30,6 +30,11 @@
       </button>
       <button (click)="nextPage()" [disabled]="currentPage * albumsPerPage >= albums.length">Next</button>
     </div> -->
+
+
+    <div class="container">
+      <button class=" btn btn-success mb-2">Ajouter un album</button>
+    </div>
     
     <div class="list col-md-auto" >
       <div class="card mb-3" *ngFor="let album of albums; index">

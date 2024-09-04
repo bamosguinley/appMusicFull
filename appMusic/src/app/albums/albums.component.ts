@@ -38,7 +38,7 @@ export class AlbumsComponent {
   loadAlbums(): void {
     this.albumService.getAlbums().subscribe({
       next: (albums: Album[]) => {
-        // this.albums = albums;
+        this.albums = albums;
         albums.forEach(album => {
          console.log(album);
           this.albums?.push(album);
