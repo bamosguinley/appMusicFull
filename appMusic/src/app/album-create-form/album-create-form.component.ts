@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { AlbumService } from '../services/album.service';
 import { Album } from '../interfaces/album';
-import Swal from 'sweetalert2';
+
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+
 
 @Component({
   selector: 'app-album-create-form',
