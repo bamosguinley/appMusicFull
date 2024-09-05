@@ -1,17 +1,12 @@
 package bj.highfiveuniversity.apiAppMusic.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.github.javafaker.Faker;
 
 import bj.highfiveuniversity.apiAppMusic.models.Album;
 import bj.highfiveuniversity.apiAppMusic.models.Musique;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 @Component
 public class MusicFakerService {
@@ -37,7 +32,7 @@ public class MusicFakerService {
 
     // Pour générer une liste de musiques fictives
     public void generateMusiqueList(Album album, int count) {
-       
+
         for (int i = 0; i < count; i++) {
             // musiqueService.createMusik(generateMusique(album));
         }

@@ -1,13 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Album } from '../interfaces/album';
 import { List } from '../interfaces/list';
-<<<<<<< HEAD
 import { AlbumService } from '../services/album.service';
-import { FavorisService } from '../services/favoris.service';
-=======
-import Swal from 'sweetalert2';
+
 import { Router } from '@angular/router';
->>>>>>> 7964ed2a4a4e6724d3c657d4fd6692afb5667f0f
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-albums',
@@ -34,14 +31,7 @@ export class AlbumsComponent {
   // totalPages!: number; //nombre total de pages
 
   @Input() sendPlayingAlbum: string = '';
-<<<<<<< HEAD
-  constructor(private albumService: AlbumService,
-    private FavorisService: FavorisService
-  
-  ) {}
-=======
   constructor(private albumService: AlbumService, private router: Router) {}
->>>>>>> 7964ed2a4a4e6724d3c657d4fd6692afb5667f0f
   ngOnInit() {
     this.loadAlbums();
     this.startLoading();
