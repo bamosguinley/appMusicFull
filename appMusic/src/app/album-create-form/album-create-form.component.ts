@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AlbumService } from '../services/album.service';
 import { Album } from '../interfaces/album';
 import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-album-create-form',
@@ -16,7 +17,7 @@ export class AlbumCreateFormComponent {
     name: '',
     description: '',
     duration: 0
-  }; 
+  };
 
   constructor(private albumService: AlbumService) {}
 
@@ -24,7 +25,7 @@ export class AlbumCreateFormComponent {
     this.albumService.createAlbum(this.newAlbum).subscribe({
       next: () => {
         Swal.fire('Succès!', 'L’album a été créé.', 'success');
-        // Réinitialise le formulaire 
+        // Réinitialise le formulaire
         this.newAlbum = {
           title: '',
           id: '',
@@ -36,7 +37,7 @@ export class AlbumCreateFormComponent {
       },
       error: (err) => {
         console.error('Erreur lors de la création de l’album', err);
-        Swal.fire(
+        Swal .fire(
           'Erreur!',
           'Une erreur est survenue lors de la création de l’album.',
           'error'

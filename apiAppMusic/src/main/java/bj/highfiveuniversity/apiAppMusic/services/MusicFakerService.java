@@ -9,9 +9,6 @@ import bj.highfiveuniversity.apiAppMusic.models.Musique;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 @Component
 public class MusicFakerService {

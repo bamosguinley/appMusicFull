@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 import bj.highfiveuniversity.apiAppMusic.services.AlbumFakerService;
 
+
 @SpringBootApplication
 public class ApiAppMusicApplication {
 
@@ -14,10 +15,10 @@ public class ApiAppMusicApplication {
 		SpringApplication.run(ApiAppMusicApplication.class, args);
 	}
 
-	// @Bean
-	// public CommandLineRunner demo(AlbumFakerService albumFakerService) {
-	// 	return (args) -> {
-	// 		albumFakerService.generateFakeAlbums(30);
-	// 	};
-	// }
+	@Bean
+	public CommandLineRunner demo(AlbumFakerService albumFakerService) {
+		return (args) -> {
+			albumFakerService.generateFakeAlbums(30);
+		};
+	}
 }
