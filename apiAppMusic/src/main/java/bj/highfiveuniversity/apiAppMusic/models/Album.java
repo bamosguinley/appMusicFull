@@ -48,8 +48,6 @@ public class Album {
 
     @OneToMany(mappedBy = "album")
     private List<AlbumFavoris> albumFavoris;
-
-
     
     @OneToMany(mappedBy = "album")
     private List<Musique> musiques;
