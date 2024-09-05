@@ -1,16 +1,36 @@
-<div class="container col-6 card p-12 p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
-  <p class="text-center h3 text-bold">Connexion</p>
-<form (ngSubmit)="onLogin()" #loginForm="ngForm" method="post">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" [(ngModel)]="username" name="username" required>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="password" name="password" required>
-  </div>
-  <button type="submit">Login</button>
-</form>
-<p *ngIf="errorMessage">{{ errorMessage }}</p>
 
+
+
+<div class="container col-6 mt-5">
+  <div class="card p-4 bg-dark text-white border border-primary shadow">
+    <p class="text-center h3 mb-4">Connexion</p>
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm" method="post">
+      <div class="mb-3">
+        <label for="username" class="form-label">Nom d'utilisateur</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control border-primary bg-dark text-white"
+          [(ngModel)]="username"
+          name="username"
+          placeholder="Entrez votre nom d'utilisateur"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control border-primary bg-dark text-white"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Entrez votre mot de passe"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+    </form>
+    <p *ngIf="errorMessage" class="text-danger text-center mt-3">{{ errorMessage }}</p>
+  </div>
 </div>
