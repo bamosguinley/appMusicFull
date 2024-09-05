@@ -35,7 +35,7 @@ public class ApiAppMusicApplication {
 		// Lancement de l'application Spring Boot
 		SpringApplication.run(ApiAppMusicApplication.class, args);
 	}
-	
+
 	@Bean
 	public CommandLineRunner demo(AlbumFakerService albumFakerService) {
 		return (args) -> {

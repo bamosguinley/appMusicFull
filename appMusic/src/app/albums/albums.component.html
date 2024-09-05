@@ -33,12 +33,11 @@
 
 
     <div class="container">
-      <button class=" btn btn-success mb-2">Ajouter un album</button>
+      <a href="album/create" class=" btn btn-success mb-2">Ajouter un album</a>
     </div>
-    
+
     <div class="list col-md-auto" >
       <div class="card mb-3" *ngFor="let album of albums; index">
-        <div class="card-header">{{ album.ref }}</div>
         <div class="card-body">
           <a class="card-title" href="album/{{ album.id }}">{{ album.name }}</a>
           <p class="card-text">
@@ -70,9 +69,10 @@
 
               {{ album.duration + " min" }}
             </span>
-            <button class="btn btn-primary" (click)="getAlbum(album.id)">
+            <button class="btn btn-primary mx-5" (click)="getAlbum(album.id)">
               Details
             </button>
+              <button class="btn btn-danger" (click)="onDelete(album.id)">Supprimer</button>
           </div>
         </div>
       </div>

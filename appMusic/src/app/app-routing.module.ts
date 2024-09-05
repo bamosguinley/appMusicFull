@@ -5,10 +5,12 @@ import { AlbumsComponent } from './albums/albums.component';
 import { ListFavorisComponent } from './list-favoris/list-favoris.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AlbumCreateFormComponent } from './album-create-form/album-create-form.component';
 
 const routes: Routes = [
   { path: 'albums', component: AlbumsComponent },
   { path: '', redirectTo: 'albums', pathMatch: 'full' },
+  { path: 'album/create', component: AlbumCreateFormComponent },
   { path: 'album/:id', component: AlbumDescriptionComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
