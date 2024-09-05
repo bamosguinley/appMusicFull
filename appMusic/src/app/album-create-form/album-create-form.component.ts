@@ -16,7 +16,7 @@ export class AlbumCreateFormComponent {
     name: '',
     description: '',
     duration: 0
-  }; // Modifiez selon votre modèle
+  }; 
 
   constructor(private albumService: AlbumService) {}
 
