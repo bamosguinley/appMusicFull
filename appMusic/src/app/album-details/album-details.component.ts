@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input,Output } from '@angular/core';
 import { Album } from '../interfaces/album';
 import { AlbumService } from '../services/album.service';
 import { List } from '../interfaces/list';
+import { Music } from '../interfaces/music';
 
 @Component({
   selector: 'app-album-details',
@@ -43,6 +44,7 @@ export class AlbumDetailsComponent {
     if (this.currentAlbum) {
       // this.albums = this.albumService.getAlbums();
       this.album = this.albums.filter((a) => a.id == this.currentAlbum);
+      
       this.currentSongs = this.albumsDetails.filter(
         (a) => a.id == this.currentAlbum
       );

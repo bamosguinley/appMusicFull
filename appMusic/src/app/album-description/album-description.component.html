@@ -1,8 +1,14 @@
 <div class="card col-md-6 m-auto">
   <!-- <img src="{{album[0].url}}" class="card-img-top" alt="..."> -->
   <div class="card-body">
+    <div class="card-title">
+      {{album?.title}}
+    </div>
     <p class="card-text">{{album?.description}}</p>
-    
+    <p class="text-primary">Musiques: </p>
+    <p *ngFor=" let music of album?.musiques">
+      {{music.title}}
+    </p>
   </div>
 </div>
 

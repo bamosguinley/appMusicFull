@@ -1,5 +1,7 @@
 package bj.highfiveuniversity.apiAppMusic.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,5 +28,6 @@ public class Musique {
 
     @ManyToOne
     @JoinColumn(name = "album_id")
+    @JsonBackReference
     private Album album;  
 }

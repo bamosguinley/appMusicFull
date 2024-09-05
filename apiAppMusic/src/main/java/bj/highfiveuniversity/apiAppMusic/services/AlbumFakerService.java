@@ -27,7 +27,7 @@ public class AlbumFakerService {
         album.setRef(faker.code().isbn13()); 
         album.setName(faker.book().title());
         album.setTitle(faker.book().author());
-        album.setDescription(faker.lorem().paragraph(20));
+        album.setDescription(faker.lorem().paragraph());
         album.setDuration(faker.number().numberBetween(30, 120)); // Durée en minutes
         album.setCreatedAt(LocalDateTime.now());
         album.setUpdatedAt(LocalDateTime.now());

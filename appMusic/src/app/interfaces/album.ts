@@ -1,3 +1,5 @@
+import { Music } from "./music";
+
 export interface Album {
   id: string;
   ref: string;
@@ -13,5 +15,5 @@ export interface Album {
   createdAt?: String;
   updatedAt?: String;
   albumFavoris?: [];
-  musiques?: [];
+  musiques?: Music[];
 }

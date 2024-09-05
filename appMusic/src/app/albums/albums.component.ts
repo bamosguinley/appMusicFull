@@ -41,7 +41,7 @@ export class AlbumsComponent {
       next: (albums: Album[]) => {
         this.albums = albums;
         albums.forEach((album) => {
-          console.log(album);
+          console.log(album.musiques);
           this.albums?.push(album);
         });
         // this.totalPages = Math.ceil(this.albums.length / 2); // Calculer le nombre total de pages

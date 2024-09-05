@@ -3,6 +3,8 @@ package bj.highfiveuniversity.apiAppMusic.models;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Data;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
@@ -38,7 +40,8 @@ public class Album {
     private String title;
 
     
-    @Column(name = "description" ,length=1000)
+    @Column(name = "description" )
+    @Lob
     private String description;
 
     @Column(name = "duration")
@@ -49,6 +52,7 @@ public class Album {
 
     private LocalDateTime updatedAt;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "album")
     private List<AlbumFavoris> albumFavoris;
 

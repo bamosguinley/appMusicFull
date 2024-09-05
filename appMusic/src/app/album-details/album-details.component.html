@@ -9,7 +9,7 @@
       <button class="btn btn-primary m-3" (click)="startPlaying()">Play <img src="../../assets/img/player.svg" alt=""></button>
       <p class="card-header">List des songs</p>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let songs of currentSongs[0].list">{{songs}}
+        <li class="list-group-item" *ngFor="let song of album[0].musiques">{{song.title}}
         </li>
       </ul>
     </div>
