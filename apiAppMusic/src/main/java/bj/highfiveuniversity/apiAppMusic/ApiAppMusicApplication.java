@@ -14,10 +14,10 @@ public class ApiAppMusicApplication {
 		SpringApplication.run(ApiAppMusicApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner demo(AlbumFakerService albumFakerService) {
-		return (args) -> {
-			albumFakerService.generateFakeAlbums(30);
-		};
-	}
+	// @Bean
+	// public CommandLineRunner demo(AlbumFakerService albumFakerService) {
+	// 	return (args) -> {
+	// 		albumFakerService.generateFakeAlbums(30);
+	// 	};
+	// }
 }
