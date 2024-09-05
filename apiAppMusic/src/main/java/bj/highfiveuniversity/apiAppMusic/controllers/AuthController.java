@@ -1,21 +1,17 @@
 package bj.highfiveuniversity.apiAppMusic.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import bj.highfiveuniversity.apiAppMusic.models.User;
 import bj.highfiveuniversity.apiAppMusic.services.UserService;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 
 @RestController
 @RequestMapping("/auth")
@@ -41,10 +37,11 @@ public class AuthController {
     public ResponseEntity<Map<String, String>> loginUser(@RequestBody Map<String, String> body) {
         String username = body.get("username");
         String password = body.get("password");
-        System.out.println(username +"nom");
+        System.out.println(username + "nom");
         User user = userService.findByUsername(username);
         if (user != null && userService.getPasswordEncoder().matches(password, user.getPassword())) {
-             // Génère un token simple (remplace cela par une véritable génération de JWT)
+
+            // Génère un token simple (remplace cela par une véritable génération de JWT)
             String token = "dummy-token-for-" + username;
 
             // Crée une réponse avec le token

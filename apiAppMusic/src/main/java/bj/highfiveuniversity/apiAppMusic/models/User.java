@@ -25,5 +25,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<AlbumFavoris> albumFavoris;
 
+    public String getPassword() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }
 

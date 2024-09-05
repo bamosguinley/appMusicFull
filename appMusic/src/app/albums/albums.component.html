@@ -6,7 +6,7 @@
     *ngIf="loader"
   ></div>
   <div class="details-container">
-    <app-album-details
+    <!-- <app-album-details
       [currentAlbum]="albumId"
       (sendToPlayer)="getAlbumForPlay($event)"
     ></app-album-details>
@@ -18,10 +18,10 @@
 
     <div class="search g-3">
       <app-album-search (searchEvent)="handleSearch($event)"></app-album-search>
-    </div>
+    </div> -->
 
 
-  <div class="pagination mb-3 ">
+  <!-- <div class="pagination mb-3 ">
       <button (click)="previousPage()" [disabled]="currentPage === 1">Prev</button>
       <button *ngFor="let page of pageNumbers" 
               (click)="butnPages(page)" 
@@ -29,10 +29,15 @@
         {{ page }}
       </button>
       <button (click)="nextPage()" [disabled]="currentPage * albumsPerPage >= albums.length">Next</button>
+    </div> -->
+
+
+    <div class="container">
+      <button class=" btn btn-success mb-2">Ajouter un album</button>
     </div>
     
-    <div class="list col-md-auto" *ngIf="displayedAlbums">
-      <div class="card mb-3" *ngFor="let album of displayedAlbums; index">
+    <div class="list col-md-auto" >
+      <div class="card mb-3" *ngFor="let album of albums; index">
         <div class="card-header">{{ album.ref }}</div>
         <div class="card-body">
           <a class="card-title" href="album/{{ album.id }}">{{ album.name }}</a>
@@ -52,16 +57,12 @@
             <span class="mx-3">
               <img src="../../assets/img/heart.svg" alt="" 
               
-              *ngIf="!isFavorite(album.id)" 
-              (click)="toggleFavorite(album.id)" 
-              [ngClass]="{'favorite': isFavorite(album.id)}" 
-              
+            
               class="favorite-icon"
               />
               <img src="../../assets/img/star-fill.svg"
-              *ngIf="isFavorite(album.id)"
-              (click)="toggleFavorite(album.id)" 
-              [ngClass]="{'favorite': isFavorite(album.id)}"   />
+             
+              />
             <a  href="favoris"> Favoris</a>
             </span>
             <span>
@@ -76,6 +77,6 @@
         </div>
       </div>
     </div>
-    <div class="text-center" *ngIf="displayedAlbums.length == 0">Aucun album trouvé 😥</div>
+    <div class="text-center" >Aucun album trouvé 😥</div>
   </div>
 </div>

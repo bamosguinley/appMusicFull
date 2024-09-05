@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlbumDescriptionComponent } from './album-description/album-description.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { AlbumPlayerComponent } from './album-player/album-player.component';
 import { AlbumSearchComponent } from './album-search/album-search.component';
 import { AlbumsComponent } from './albums/albums.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { ListFavorisComponent } from './list-favoris/list-favoris.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +22,15 @@ import { ListFavorisComponent } from './list-favoris/list-favoris.component';
     AlbumSearchComponent,
     AlbumsComponent,
     LoginComponent,
-    ListFavorisComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
     
   ],
   providers: [],

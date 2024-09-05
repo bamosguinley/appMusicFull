@@ -1,7 +1,11 @@
 package bj.highfiveuniversity.apiAppMusic;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import bj.highfiveuniversity.apiAppMusic.services.AlbumFakerService;
 
 /**
  * Classe principale de l'application `ApiAppMusicApplication`.
@@ -31,5 +35,11 @@ public class ApiAppMusicApplication {
 		// Lancement de l'application Spring Boot
 		SpringApplication.run(ApiAppMusicApplication.class, args);
 	}
-
+	
+	@Bean
+	public CommandLineRunner demo(AlbumFakerService albumFakerService) {
+		return (args) -> {
+			albumFakerService.generateFakeAlbums(30);
+		};
+	}
 }
