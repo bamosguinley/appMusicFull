@@ -1,0 +1,24 @@
+<!-- album.component.html -->
+<div>
+  <h2>Créer un Album</h2>
+  <form (ngSubmit)="createAlbum()">
+    <div>
+      <label for="title">Titre</label>
+      <input type="text" id="title" [(ngModel)]="newAlbum.title" name="title" required>
+    </div>
+    <div>
+      <label for="artist">Artiste</label>
+      <input type="text" id="artist" [(ngModel)]="newAlbum.name" name="artist" required>
+    </div>
+    <div>
+      <label for="releaseDate">Description: </label>
+      <textarea name="" id="" cols="30" rows="10" [(ngModel)]="newAlbum.description"  name="description" required>
+      </textarea>
+    </div>
+    <div>
+      <label for="duration">Durée :</label>
+      <input type="number" id="duration" [(ngModel)]="newAlbum.duration" name="releaseDate" required>
+    </div>
+    <button type="submit">Créer Album</button>
+  </form>
+</div>
