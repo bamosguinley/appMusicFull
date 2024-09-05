@@ -26,13 +26,13 @@ public class Album {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "ref", unique = true, nullable = false)
+    @Column(name = "ref")
     private String ref;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "title", nullable = false)
+    @Column(name = "title")
     private String title;
 
     @Column(name = "description")
