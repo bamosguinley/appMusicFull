@@ -1,24 +1,22 @@
-<!-- album.component.html -->
-<div>
-  <h2>Créer un Album</h2>
+<div class="container mt-4">
+  <h2 class="mb-4">Créer un Album</h2>
   <form (ngSubmit)="createAlbum()">
-    <div>
+    <div class="form-group">
       <label for="title">Titre</label>
-      <input type="text" id="title" [(ngModel)]="newAlbum.title" name="title" required>
+      <input type="text" id="title" class="form-control" [(ngModel)]="newAlbum.title" name="title" required>
     </div>
-    <div>
+    <div class="form-group">
       <label for="artist">Artiste</label>
-      <input type="text" id="artist" [(ngModel)]="newAlbum.name" name="artist" required>
+      <input type="text" id="artist" class="form-control" [(ngModel)]="newAlbum.name" name="artist" required>
     </div>
-    <div>
-      <label for="releaseDate">Description: </label>
-      <textarea name="" id="" cols="30" rows="10" [(ngModel)]="newAlbum.description"  name="description" required>
-      </textarea>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" cols="30" rows="5" [(ngModel)]="newAlbum.description" name="description" required></textarea>
     </div>
-    <div>
-      <label for="duration">Durée :</label>
-      <input type="number" id="duration" [(ngModel)]="newAlbum.duration" name="releaseDate" required>
+    <div class="form-group">
+      <label for="duration">Durée</label>
+      <input type="number" id="duration" class="form-control" [(ngModel)]="newAlbum.duration" name="duration" required>
     </div>
-    <button type="submit">Créer Album</button>
+    <button type="submit" class="btn btn-primary mt-3" >Créer Album</button>
   </form>
 </div>

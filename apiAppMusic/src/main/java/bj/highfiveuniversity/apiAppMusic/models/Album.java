@@ -26,7 +26,7 @@ public class Album {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "ref", unique = true)
+    @Column(name = "ref")
     private String ref;
 
     @Column(name = "name")
@@ -35,7 +35,8 @@ public class Album {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "description")
+    
+    @Column(name = "description" ,length=1000)
     private String description;
 
     @Column(name = "duration")

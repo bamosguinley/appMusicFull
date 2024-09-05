@@ -1,25 +1,23 @@
 package bj.highfiveuniversity.apiAppMusic.services;
 
-
 import com.github.javafaker.Faker;
 
 import bj.highfiveuniversity.apiAppMusic.models.Album;
 import bj.highfiveuniversity.apiAppMusic.models.Musique;
 
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class MusicFakerService {
 
     private final Faker faker = new Faker();
 
-    @Autowired
-    private MusiqueService musiqueService;
+    // @Autowired
+    // private MusiqueService musiqueService;
 
-    @Autowired
-    private AlbumService albumService;
+    // @Autowired
+    // private AlbumService albumService;
 
     public Musique generateMusique() {
         // Album currentAlb = albumService.findById("11");
@@ -34,7 +32,7 @@ public class MusicFakerService {
 
     // Pour générer une liste de musiques fictives
     public void generateMusiqueList(Album album, int count) {
-       
+
         for (int i = 0; i < count; i++) {
             // musiqueService.createMusik(generateMusique(album));
         }

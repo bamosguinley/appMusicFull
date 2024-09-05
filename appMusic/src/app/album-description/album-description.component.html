@@ -1,10 +1,32 @@
-<div class="card col-md-6 m-auto">
-  <!-- <img src="{{album[0].url}}" class="card-img-top" alt="..."> -->
-  <div class="card-body">
-    <p class="card-text">{{album?.description}}</p>
-    
-  </div>
+
+
+<div class="container mt-4" *ngIf="album">
+  <h2 class="mb-4">Modifier un Album</h2>
+  <form (ngSubmit)="modifyAlb()" >
+    <div class="form-group">
+      <label for="title">Titre</label>
+      <input type="text" id="title" class="form-control" [(ngModel)]="album.title" name="title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" cols="30" rows="5" [(ngModel)]="album.description" name="description" required></textarea>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-success" >Modifier</button>
+    </div>
+  </form>
 </div>
+
+
+
+
+
+
+
+
+
 
 
 <div class="container mt-5">
@@ -20,6 +42,6 @@
       <textarea id="lyrics" class="form-control" formControlName="lyrics" rows="5" placeholder="Entrez les paroles de la musique" required></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">Ajouter</button>
+    <button type="submit" class="btn btn-primary mt-3" >Ajouter</button>
   </form>
 </div>
