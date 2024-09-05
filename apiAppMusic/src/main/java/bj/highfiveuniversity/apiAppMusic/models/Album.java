@@ -5,12 +5,14 @@ import java.util.List;
 
 import lombok.Data;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
+import jakarta.websocket.Decoder.Text;
 import jakarta.persistence.GeneratedValue;
 import lombok.Builder;
 
@@ -35,7 +37,8 @@ public class Album {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "description")
+    
+    @Column(name = "description" ,length=1000)
     private String description;
 
     @Column(name = "duration")
