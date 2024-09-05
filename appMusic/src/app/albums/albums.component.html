@@ -21,7 +21,7 @@
     </div>
 
 
-  <div class="pagination mb-3 ">
+  <!-- <div class="pagination mb-3 ">
       <button (click)="previousPage()" [disabled]="currentPage === 1">Prev</button>
       <button *ngFor="let page of pageNumbers" 
               (click)="butnPages(page)" 
@@ -29,11 +29,15 @@
         {{ page }}
       </button>
       <button (click)="nextPage()" [disabled]="currentPage * albumsPerPage >= albums.length">Next</button>
+    </div> -->
+
+
+    <div class="container">
+      <a href="album/create" class=" btn btn-success mb-2">Ajouter un album</a>
     </div>
-    
-    <div class="list col-md-auto" *ngIf="displayedAlbums">
-      <div class="card mb-3" *ngFor="let album of displayedAlbums; index">
-        <div class="card-header">{{ album.ref }}</div>
+
+    <div class="list col-md-auto" >
+      <div class="card mb-3" *ngFor="let album of albums; index">
         <div class="card-body">
           <a class="card-title" href="album/{{ album.id }}">{{ album.name }}</a>
           <p class="card-text">
@@ -57,13 +61,14 @@
               <img src="../../assets/img/clock.svg" alt="" />
               {{ album.duration + " min" }}
             </span>
-            <button class="btn btn-primary" (click)="getAlbum(album.id)">
+            <button class="btn btn-primary mx-5" (click)="getAlbum(album.id)">
               Details
             </button>
+              <button class="btn btn-danger" (click)="onDelete(album.id)">Supprimer</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="text-center" *ngIf="displayedAlbums.length == 0">Aucun album trouvé 😥</div>
+    <div class="text-center" >Aucun album trouvé 😥</div>
   </div>
 </div>

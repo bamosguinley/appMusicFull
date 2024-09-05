@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AlbumCreateFormComponent } from './album-create-form/album-create-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegisterComponent } from './register/register.component';
     AlbumSearchComponent,
     AlbumsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AlbumCreateFormComponent
   ],
   imports: [
     BrowserModule,

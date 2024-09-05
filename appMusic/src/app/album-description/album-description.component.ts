@@ -6,19 +6,33 @@ import { Album } from '../interfaces/album';
 @Component({
   selector: 'app-album-description',
   templateUrl: './album-description.component.html',
-  styleUrl: './album-description.component.css'
+  styleUrl: './album-description.component.css',
 })
 export class AlbumDescriptionComponent {
-  album: Album[] = [];
+  album?: Album;
   albums: Album[] = [];
   albumId?: string;
-  constructor(private route: ActivatedRoute,private albumService:AlbumService) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private albumService: AlbumService
+  ) {}
   ngOnInit() {
-    this.route.params.subscribe((params) => this.albumId = params['id']);
-    this.albums = this.albumService.getAlbums();
-    this.album = this.albums.filter((a) => a.id == this.albumId)
-    console.log(this.album);
+    this.route.params.subscribe((params) => (this.albumId = params['id']));
+
+    this.albumService.getAlbums().subscribe({
+      next: (albums: Album[]) => {
+        this.albums = albums;
+        albums.forEach((album) => {
+          this.albums?.push(album);
+        });
+        this.album = this.albums.filter((a) => a.id == this.albumId)[0];
+        console.log(this.album + 'ffff');
+      },
+      error: (err) => {
+        console.error('Erreur lors de la récupération des albums:', err);
+      },
+    });
+    
     
   }
 }

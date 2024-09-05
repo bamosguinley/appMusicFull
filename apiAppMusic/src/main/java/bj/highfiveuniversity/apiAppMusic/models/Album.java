@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
+import lombok.Builder;
 
 
 @Data
@@ -19,6 +20,7 @@ import jakarta.persistence.GeneratedValue;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="albums")
+@Builder
 public class Album {
     @Id
     @GeneratedValue
@@ -45,6 +47,10 @@ public class Album {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "album")
-    private List<AlbumFavoris> albumFavoris; 
+    private List<AlbumFavoris> albumFavoris;
 
+
+    
+    @OneToMany(mappedBy = "album")
+    private List<Musique> musiques;
 }
